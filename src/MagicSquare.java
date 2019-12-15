@@ -17,7 +17,7 @@ public class MagicSquare {
 	/**
 	 * The magic number
 	 */
-	private final int LIMIT = SIZE * SIZE;
+	public final int LIMIT = SIZE * SIZE;
 
 	/**
 	 * The board/grid for the magic square
@@ -86,6 +86,10 @@ public class MagicSquare {
 
 	}
 	
+	public int getValueOfSquare(int i, int j) {
+		return board[i][j];
+	}
+	
 	
 	public void resetGame() {
 		for (int i = 0; i < SIZE; i++) {
@@ -124,7 +128,7 @@ public class MagicSquare {
 	 * 
 	 * @return
 	 */
-	private boolean checkWon() {
+	public boolean checkWon() {
 
 		// check the two diagonals, set the first diagonal value as the magic number to compare against
 		int diagSum = 0, magicNum = 0;
