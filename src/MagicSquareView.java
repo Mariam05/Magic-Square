@@ -62,14 +62,34 @@ public class MagicSquareView extends JFrame implements MagicSquareListener {
 			
 			message += "\n Would you like to play again?";
 			
-			JOptionPane.showMessageDialog(this, message);
-				
+			int i = JOptionPane.showConfirmDialog(null, message, "MagicSquare",  JOptionPane.YES_NO_OPTION);
+			if (i == 0) { //yes pressed
+				model.resetGame();
+			} else {
+				dispose();
+			}
+			
+		}
+		
+	}
+
+	/**
+	 * Reset the board by removing all values
+	 */
+	@Override
+	public void handleResetGame() {
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) {
+				buttons[i][j].setText("");
+			}
 		}
 		
 	}
 	
 	public static void main(String[] args) {
 		MagicSquare m = new MagicSquare();
+		
 		new MagicSquareView(m);
 	}
+
 }

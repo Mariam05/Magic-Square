@@ -85,6 +85,21 @@ public class MagicSquare {
 		}
 
 	}
+	
+	
+	public void resetGame() {
+		for (int i = 0; i < SIZE; i++) {
+			for (int j = 0; j < SIZE; j++) {
+				board[i][j] = 0; // 0 is the default value for int (primitive)
+			}
+		}
+		// make all the listeners handle the reset
+		for (MagicSquareListener m : magicSquareListeners) {
+			m.handleResetGame();
+		}
+		
+
+	}
 
 	/**
 	 * Check if the player has finished inputting all numbers in the square
@@ -98,6 +113,8 @@ public class MagicSquare {
 					return false;
 			}
 		}
+		
+		
 
 		return true;
 	}
