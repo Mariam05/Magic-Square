@@ -5,6 +5,12 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+/**
+ * This class is the view for the magic square and implements listener such that
+ * when the model makes a change it can handle it. 
+ * @author tomar
+ *
+ */
 public class MagicSquareView extends JFrame implements MagicSquareListener {
 
 	
@@ -14,6 +20,10 @@ public class MagicSquareView extends JFrame implements MagicSquareListener {
 	
 	private int size;
 	
+	/**
+	 * Create a new jframe
+	 * @param model the MagicSquare logic
+	 */
 	public MagicSquareView(MagicSquare model) {
 		super();
 		this.model = model;
@@ -30,7 +40,9 @@ public class MagicSquareView extends JFrame implements MagicSquareListener {
 		setVisible(true);
 	}
 	
-	
+	/**
+	 * Initialize all the JButtons
+	 */
 	private void initializeButtons() {
 		for (int i = 0; i < size; i++) {
 			for (int j = 0; j < size; j++) {
@@ -46,6 +58,9 @@ public class MagicSquareView extends JFrame implements MagicSquareListener {
 	}
 
 
+	/**
+	 * Handle a notification from the model based on the state of the game at that point in time. 
+	 */
 	public void handleMagicSquareEvent(MagicSquareEvent e) {
 	
 		buttons[e.getI()][e.getJ()].setText(e.getNum() + ""); //set the text of that square

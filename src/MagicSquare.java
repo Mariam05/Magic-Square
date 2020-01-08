@@ -34,6 +34,9 @@ public class MagicSquare {
 	 */
 	private List<MagicSquareListener> magicSquareListeners;
 
+	/**
+	 * Create a new instance of the square
+	 */
 	public MagicSquare() {
 		board = new int[SIZE][SIZE];
 		magicSquareListeners = new ArrayList<>();
@@ -86,11 +89,19 @@ public class MagicSquare {
 
 	}
 	
+	/**
+	 * Get the value of a square at a given location in the grid
+	 * @param i the row
+	 * @param j the column
+	 * @return int value
+	 */
 	public int getValueOfSquare(int i, int j) {
 		return board[i][j];
 	}
 	
-	
+	/**
+	 * Set all the squares to 0
+	 */
 	public void resetGame() {
 		for (int i = 0; i < SIZE; i++) {
 			for (int j = 0; j < SIZE; j++) {
